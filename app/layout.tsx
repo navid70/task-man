@@ -1,12 +1,29 @@
 import React from "react";
-
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import "./globals.css";
+import { ColorSchemeScript, createTheme, MantineProvider, useMantineColorScheme } from '@mantine/core';
 import '@mantine/core/styles.css';
+import { useHotkeys } from "@mantine/hooks";
+import ChangeTheme from "@/components/changeTheme";
+
 
 export const metadata = {
-  title: 'My Mantine app',
-  description: 'I have followed setup instructions carefully',
+  title: {
+    default: "task-man",
+    template: `%s | "task-man"`,
+  },
+  description: "manage your task with the superpower of task man",
+  icons: [
+    {
+      url: "/logo.svg",
+      href: "/logo.svg",
+    },
+  ],
 };
+
+const theme = createTheme({
+  primaryColor: "violet",
+  defaultRadius:"lg"
+});
 
 export default function RootLayout({
                                      children,
@@ -15,12 +32,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
-      <body>
-        <MantineProvider>{children}</MantineProvider>
-      </body>
+    <head>
+      <ColorSchemeScript />
+    </head>
+    <body>
+    <MantineProvider theme={theme} defaultColorScheme={'dark'}>
+      <ChangeTheme/>
+      {children}
+    </MantineProvider>
+    </body>
     </html>
   );
 }

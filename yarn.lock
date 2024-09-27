@@ -420,6 +420,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tabler/icons-react@npm:^3.18.0":
+  version: 3.18.0
+  resolution: "@tabler/icons-react@npm:3.18.0"
+  dependencies:
+    "@tabler/icons": "npm:3.18.0"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 10c0/7500a9dc175f1924a35cefe3a50a82fdc34bbb79f49c3b4973597f9ea2ff4946e3f93e7cce9d1fe6a6af31246f708de9f44f8b1db1445a49780cfda1278083e9
+  languageName: node
+  linkType: hard
+
+"@tabler/icons@npm:3.18.0":
+  version: 3.18.0
+  resolution: "@tabler/icons@npm:3.18.0"
+  checksum: 10c0/efb70286fa8e488d91e4640b00c80d4abc36ccc4f06e7979f97a174cb76b1418ff3ccfb27e0aad3ee44bc0e1613a03de9ee09b57745c700d3518f377e829fe56
+  languageName: node
+  linkType: hard
+
 "@types/json5@npm:^0.0.29":
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
@@ -4053,6 +4071,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwind-merge@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "tailwind-merge@npm:2.5.2"
+  checksum: 10c0/e43a9a468f7ba4ed5b4a399558d96d6270a3d8131dca111cccc803e71cc23885060d18d721f312a24fff0a75c567dbb30b2a87c18aba25eb4255df197d8170ab
+  languageName: node
+  linkType: hard
+
 "tailwindcss@npm:^3.4.13":
   version: 3.4.13
   resolution: "tailwindcss@npm:3.4.13"
@@ -4114,9 +4139,11 @@ __metadata:
     "@mantine/core": "npm:^7.13.0"
     "@mantine/hooks": "npm:^7.13.0"
     "@mantine/notifications": "npm:^7.13.0"
+    "@tabler/icons-react": "npm:^3.18.0"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
+    clsx: "npm:^2.1.1"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.2.13"
     next: "npm:14.2.13"
@@ -4125,6 +4152,7 @@ __metadata:
     postcss-simple-vars: "npm:^7.0.1"
     react: "npm:^18"
     react-dom: "npm:^18"
+    tailwind-merge: "npm:^2.5.2"
     tailwindcss: "npm:^3.4.13"
     typescript: "npm:^5"
   languageName: unknown
