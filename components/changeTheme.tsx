@@ -1,6 +1,5 @@
 "use client"
 
-import React from 'react';
 import { useMantineColorScheme } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 
@@ -16,9 +15,7 @@ function ChangeTheme() {
     }],
   ]);
 
-  return (
-    <div></div>
-  );
+  return null;
 }
 
 export default ChangeTheme;
