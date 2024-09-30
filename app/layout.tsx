@@ -2,8 +2,10 @@ import React from "react";
 import "./globals.css";
 import { ColorSchemeScript, createTheme, MantineProvider, useMantineColorScheme } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { useHotkeys } from "@mantine/hooks";
+import { useColorScheme, useHotkeys } from "@mantine/hooks";
 import ChangeTheme from "@/components/changeTheme";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 
 export const metadata = {
@@ -22,7 +24,7 @@ export const metadata = {
 
 const theme = createTheme({
   primaryColor: "violet",
-  defaultRadius:"lg"
+  defaultRadius: "lg"
 });
 
 export default function RootLayout({
@@ -30,15 +32,25 @@ export default function RootLayout({
                                    }: {
   children: React.ReactNode;
 }) {
+
+  const colorScheme = typeof window === 'undefined' ? undefined : window.localStorage.getItem("mantine-color-scheme-value");
+
+
   return (
     <html lang="en">
     <head>
-      <ColorSchemeScript />
+      <ColorSchemeScript/>
     </head>
     <body>
     <MantineProvider theme={theme} defaultColorScheme={'dark'}>
       <ChangeTheme/>
-      {children}
+      <ClerkProvider
+        appearance={{
+          baseTheme: colorScheme ? (colorScheme === "dark" ? dark : undefined) : dark
+        }}
+      >
+        {children}
+      </ClerkProvider>
     </MantineProvider>
     </body>
     </html>
