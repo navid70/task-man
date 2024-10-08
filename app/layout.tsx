@@ -1,11 +1,10 @@
 import React from "react";
 import "./globals.css";
-import { ColorSchemeScript, createTheme, MantineProvider, useMantineColorScheme } from '@mantine/core';
+import { ColorSchemeScript, createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { useColorScheme, useHotkeys } from "@mantine/hooks";
-import ChangeTheme from "@/components/changeTheme";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import ChangeTheme from "@/components/change-theme";
+import { MyClerkProvider } from "@/components/clerk-provider";
+import { Notifications } from "@mantine/notifications";
 
 
 export const metadata = {
@@ -39,18 +38,16 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-      <ColorSchemeScript/>
+      <ColorSchemeScript />
     </head>
     <body>
     <MantineProvider theme={theme} defaultColorScheme={'dark'}>
-      <ChangeTheme/>
-      <ClerkProvider
-        appearance={{
-          baseTheme: colorScheme ? (colorScheme === "dark" ? dark : undefined) : dark
-        }}
-      >
+      <ChangeTheme />
+      <Notifications />
+
+      <MyClerkProvider>
         {children}
-      </ClerkProvider>
+      </MyClerkProvider>
     </MantineProvider>
     </body>
     </html>

@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function CreateOrganizationPage() {
-  const { createOrganization,setActive } = useOrganizationList();
+  const { createOrganization, setActive } = useOrganizationList();
   const [isSetting, setIsSetting] = useState(false);
   const { user } = useUser();
-  const {orgId} = useAuth()
+  const { orgId } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -20,21 +20,21 @@ export default function CreateOrganizationPage() {
           .then(res => {
             console.log(res.id);
             console.log('successfully created organization');
-            setActive({organization: res.id}).then(()=>{
+            setActive({ organization: res.id }).then(() => {
               router.push(`/organization/${res.id}`);
             });
           })
           .catch(err => console.log("errrrr" + err));
       }
     }
-  }, [user, createOrganization, router]);
+  }, [user, createOrganization, router, setActive]);
 
 
   console.log(orgId);
 
 
-  if (isSetting || !orgId || (user && user.organizationMemberships.length === 0)){
-    return "loading"
+  if (isSetting || !orgId || (user && user.organizationMemberships.length === 0)) {
+    return "loading";
   }
 
   if (user && user.organizationMemberships.length > 0 && orgId) {
