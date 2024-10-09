@@ -3,13 +3,12 @@
 import { useAction } from "@/hooks/use-action";
 import { createBoard } from "@/actions/create-board";
 
-// import { toast } from "sonner";
+import toast from "react-hot-toast";
 // import { FormPicker } from "./form-picker";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@mantine/hooks";
 import { Button, Popover, PopoverDropdown, PopoverTarget, TextInput } from "@mantine/core";
-import { notifications } from "@mantine/notifications";
 import { ImagePicker } from "./image-picker";
 // import { useProModal } from "@/hooks/use-pro-modal";
 // import { useMediaQuery } from "usehooks-ts";
@@ -39,12 +38,12 @@ export const CreateBoardPopover = ({
 
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
-      notifications.show({ message: "Board created!" });
+      toast.success("Board created!");
       closeRef.current?.click();
       router.push(`/board/${data.id}`);
     },
     onError: (error) => {
-      notifications.show({ color: "red", message: error });
+      toast.error(error);
       // proModal.onOpen();
     },
   });
@@ -53,7 +52,6 @@ export const CreateBoardPopover = ({
     const title = formData.get("title") as string;
     const image = formData.get("image") as string;
 
-    console.log(title);
     execute({ title, image });
   };
 

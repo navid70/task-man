@@ -11,7 +11,7 @@ export default clerkMiddleware((auth, request) => {
     auth().protect();
   }
 
-  console.log(auth().orgId);
+  // console.log(auth().orgId);
 
   if (auth().userId && isPublicRoute(request)) {
     let path = "/select-org";

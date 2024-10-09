@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 import { usePathname, useRouter } from "next/navigation";
-import { IconActivity, IconCreditCard, IconLayout, IconSettings } from "@tabler/icons-react";
+import { IconActivity, IconLayout, IconSettings } from "@tabler/icons-react";
 import { AccordionControl, AccordionItem, AccordionPanel, Button, Skeleton } from "@mantine/core";
 
 export type Organization = {
@@ -44,12 +44,7 @@ export const NavItem = ({
       label: "Settings",
       icon: <IconSettings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
-    },
-    {
-      label: "Billing",
-      icon: <IconCreditCard className="h-4 w-4 mr-2" />,
-      href: `/organization/${organization.id}/billing`,
-    },
+    }
   ];
 
   const onClick = (href: string) => {
