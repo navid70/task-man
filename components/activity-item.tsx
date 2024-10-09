@@ -10,9 +10,9 @@ interface ActivityItemProps {
 export const ActivityItem = ({ data }: ActivityItemProps) => {
   return (
     <li className="flex items-center gap-x-2 ">
-      {/*<AvatarGroup className="h-8 w-8">*/}
-      {/*  <Avatar  src={data.userImage} />*/}
-      {/*</AvatarGroup>*/}
+      <AvatarGroup className="h-8 w-8">
+        <Avatar  src={data.userImage} />
+      </AvatarGroup>
       <div className="flex flex-col space-y-0.5">
         <p className="text-sm text-muted-foreground">
           <span className="font-semibold lowercase ">
