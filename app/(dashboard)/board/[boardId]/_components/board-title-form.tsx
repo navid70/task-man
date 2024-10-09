@@ -5,7 +5,7 @@ import { Board } from "@prisma/client";
 import { useAction } from "@/hooks/use-action";
 import { updateBoard } from "@/actions/update-board";
 import toast from "react-hot-toast";
-import { Button, Input, TextInput } from "@mantine/core";
+import { Button, Input } from "@mantine/core";
 
 interface BoardTitleFormProps {
   data: Board;

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Button } from "@mantine/core";
+// import Image from "next/image";
+// import { Button } from "@mantine/core";
 
 export const Footer = () => {
   return (

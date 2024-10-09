@@ -1,8 +1,7 @@
 "use client"
 
 import { Logo } from "@/components/logo";
-// import { MobileSidebar } from "./mobile-sidebar";
-// import { FormPopover } from "@/components/form/form-popover";
+import { MobileSidebar } from "./mobile-sidebar";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Button } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
@@ -14,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <nav className="h-14 w-full px-2 md:px-4 flex items-center shadow-md border-b fixed top-0 z-50">
-      {/*<MobileSidebar />*/}
+      <MobileSidebar />
       <div className="flex items-center gap-x-1 sm:gap-x-4">
         <div className="hidden md:flex">
           <Logo />

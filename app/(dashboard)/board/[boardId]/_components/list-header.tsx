@@ -7,7 +7,7 @@ import { useState, useRef, ElementRef } from "react";
 import toast from "react-hot-toast";
 import { ListOptions } from "./list-options";
 import { useEventListener } from "@mantine/hooks";
-import { Input, TextInput } from "@mantine/core";
+import { Input } from "@mantine/core";
 
 interface ListHeaderProps {
   data: List;

@@ -21,7 +21,7 @@ export const Info = () => {
         <Image
           fill
           sizes={"inherit"}
-          src={organization?.imageUrl!}
+          src={organization!.imageUrl}
           alt="Organization"
           className="rounded-lg object-cover"
         />

@@ -32,6 +32,7 @@ export async function GET(
     });
 
     return NextResponse.json(card);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return new NextResponse("Internal Server Error", { status: 500 });
   }

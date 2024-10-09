@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+// import Image from "next/image";
 import { defaultImages } from "@/constants/images";
-import Link from "next/link";
+// import Link from "next/link";
 import { Loader } from "@mantine/core";
 import { createApi } from "unsplash-js";
 import { IconCheck } from "@tabler/icons-react";

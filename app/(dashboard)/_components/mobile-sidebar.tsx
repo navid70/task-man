@@ -1,19 +1,19 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { useMobileSidebar } from "@/hooks/use-mobile-sidebar";
-import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Sidebar } from "./sidebar";
+import { Button, Drawer } from "@mantine/core";
+import { IconMenu } from "@tabler/icons-react";
+import { useShallow } from "zustand/react/shallow";
 
 export const MobileSidebar = () => {
-  const { isOpen, onOpen, onClose } = useMobileSidebar((state) => ({
+  const { isOpen, onOpen, onClose } = useMobileSidebar(useShallow((state) => ({
     isOpen: state.isOpen,
     onOpen: state.onOpen,
     onClose: state.onClose,
-  }));
+  })));
 
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
@@ -34,17 +34,17 @@ export const MobileSidebar = () => {
     <>
       <Button
         onClick={onOpen}
-        variant={"ghost"}
+        variant={"default"}
         size={"sm"}
-        className="block md:hidden"
+        className="block md:hidden mr-4"
       >
-        <Menu className="h-6 w-6 shrink-0" />
+        <IconMenu className="size-6 shrink-0" />
       </Button>
-      <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent side={"left"} className="p-2 pt-10">
+      <Drawer opened={isOpen} onClose={onClose} position={'left'}>
+        <div className="p-2 pt-10">
           <Sidebar storageKey="t-sidebar-mobile-state" />
-        </SheetContent>
-      </Sheet>
+        </div>
+      </Drawer>
     </>
   );
 };

@@ -32,8 +32,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  const colorScheme = typeof window === 'undefined' ? undefined : window.localStorage.getItem("mantine-color-scheme-value");
-
 
   return (
     <html lang="en">
