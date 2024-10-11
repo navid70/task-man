@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Skeleton } from "@mantine/core";
-import { IconUser } from "@tabler/icons-react";
+import { IconPlus, IconUser } from "@tabler/icons-react";
 import { CreateBoardPopover } from "@/app/(dashboard)/organization/[organizationId]/_components/create-board-popover";
 
 export const BoardList = async () => {
@@ -39,7 +39,7 @@ export const BoardList = async () => {
             className="group border-[1px] border-sky-200 relative aspect-video shrink-0 bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm h-full w-full p-2 overflow-hidden hover:scale-110 transition"
           >
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
-            <p className="relative font-semibold text-muted">{board.title}</p>
+            <p className="relative font-semibold text-white">{board.title}</p>
           </Link>
         ))}
         <CreateBoardPopover sideOffset={10} side="right">
@@ -48,9 +48,8 @@ export const BoardList = async () => {
             className="aspect-video shrink-0 relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-90 hover:scale-110 transition"
           >
             <p className="text-sm">Create New Board</p>
-            <span className="text-xs">
-               remaining
-            </span>
+
+            <IconPlus />
           </div>
         </CreateBoardPopover>
       </div>

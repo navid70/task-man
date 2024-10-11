@@ -6,6 +6,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { IconPlus } from "@tabler/icons-react";
 import { CreateBoardPopover } from "@/app/(dashboard)/organization/[organizationId]/_components/create-board-popover";
 import { Button } from "@mantine/core";
+import { ThemeSwitch } from "@/components/theme-switch";
 
 export const Navbar = () => {
 
@@ -17,6 +18,9 @@ export const Navbar = () => {
       <div className="flex items-center gap-x-1 sm:gap-x-4">
         <div className="hidden md:flex">
           <Logo />
+        </div>
+        <div className="m1.5">
+          <ThemeSwitch />
         </div>
         <CreateBoardPopover side="bottom">
           <Button
