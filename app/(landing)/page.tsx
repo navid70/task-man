@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link";
 import { Merriweather } from "next/font/google";
-import { Button } from "@mantine/core";
+import { Button } from "@/components/Button";
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ const MarketingPage = () => {
             Task Man
           </h1>
           <h2 className="text-center font-semibold">
-            speedup your workflow with task nab
+            speedup your workflow with task man
           </h2>
         </div>
 

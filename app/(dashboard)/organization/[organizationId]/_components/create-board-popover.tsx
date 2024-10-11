@@ -8,28 +8,29 @@ import toast from "react-hot-toast";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@mantine/hooks";
-import { Button, Popover, PopoverDropdown, PopoverTarget, TextInput } from "@mantine/core";
+import { Popover, PopoverDropdown, PopoverTarget, TextInput } from "@mantine/core";
 import { ImagePicker } from "./image-picker";
+import { useFormStatus } from "react-dom";
+import { Button } from "@/components/Button";
 // import { useProModal } from "@/hooks/use-pro-modal";
 // import { useMediaQuery } from "usehooks-ts";
 
 interface CreateBoardPopoverProps {
   children: React.ReactNode;
   side?: "left" | "right" | "top" | "bottom";
-  align?: "start" | "center" | "end";
   sideOffset?: number;
 }
 
 export const CreateBoardPopover = ({
                                      children,
                                      side = "bottom",
-                                     sideOffset = 0,
                                    }: CreateBoardPopoverProps) => {
   // const proModal = useProModal();
   const closeRef = useRef<ElementRef<"button">>(null);
   const router = useRouter();
   const isMobile = useMediaQuery("(max-width:768px)");
-
+  const { pending } = useFormStatus();
+  console.log('out',pending);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -59,12 +60,10 @@ export const CreateBoardPopover = ({
     return null;
   }
   return (
-    <Popover offset={sideOffset} position={isMobile ? "bottom" : side}>
+    <Popover key={'deck'} closeOnEscape={true} closeOnClickOutside={true} position={isMobile ? "bottom" : side}>
       <PopoverTarget>{children}</PopoverTarget>
-      <PopoverDropdown
-        className="w-full md:w-80 pt-3"
-      >
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+      <PopoverDropdown>
+        <div className="text-sm font-medium text-center my-4">
           Create Board
         </div>
         {/*<PopoverClose asChild ref={closeRef}>*/}

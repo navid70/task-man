@@ -11,7 +11,8 @@ import { ElementRef, useRef, useState } from "react";
 import { useClickOutside, useEventListener } from "@mantine/hooks";
 import toast from "react-hot-toast";
 import { IconAlignLeft } from "@tabler/icons-react";
-import { Button, Skeleton, Textarea } from "@mantine/core";
+import { Skeleton, Textarea } from "@mantine/core";
+import { Button } from "@/components/Button";
 
 interface DescriptionProps {
   data: CardWithList;

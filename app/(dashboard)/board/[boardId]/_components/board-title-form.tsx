@@ -5,7 +5,8 @@ import { Board } from "@prisma/client";
 import { useAction } from "@/hooks/use-action";
 import { updateBoard } from "@/actions/update-board";
 import toast from "react-hot-toast";
-import { Button, Input } from "@mantine/core";
+import { Input } from "@mantine/core";
+import { Button } from "@/components/Button";
 
 interface BoardTitleFormProps {
   data: Board;
@@ -43,7 +44,7 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
 
   const onSubmit = (formData: FormData) => {
     const title = formData.get("title") as string;
-    console.log(title);
+
     execute({
       title,
       id: data.id,
@@ -51,7 +52,6 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
   };
 
   const onBlur = () => {
-    console.log('sddddddddddd');
     formRef.current?.requestSubmit();
   };
 

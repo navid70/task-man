@@ -6,8 +6,9 @@ import { deleteList } from "@/actions/delete-list";
 import toast from "react-hot-toast";
 import { ElementRef, useRef } from "react";
 import { copyList } from "@/actions/copy-list";
-import { Button, Divider, Popover, PopoverDropdown, PopoverTarget } from "@mantine/core";
+import { Divider, Popover, PopoverDropdown, PopoverTarget } from "@mantine/core";
 import { IconDots } from "@tabler/icons-react";
+import { Button } from "@/components/Button";
 
 interface ListOptionsProps {
   data: List;

@@ -4,9 +4,10 @@ import { useMobileSidebar } from "@/hooks/use-mobile-sidebar";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Sidebar } from "./sidebar";
-import { Button, Drawer } from "@mantine/core";
+import { Drawer } from "@mantine/core";
 import { IconMenu } from "@tabler/icons-react";
 import { useShallow } from "zustand/react/shallow";
+import { Button } from "@/components/Button";
 
 export const MobileSidebar = () => {
   const { isOpen, onOpen, onClose } = useMobileSidebar(useShallow((state) => ({
@@ -36,7 +37,8 @@ export const MobileSidebar = () => {
         onClick={onOpen}
         variant={"default"}
         size={"sm"}
-        className="block md:hidden mr-4"
+        hiddenFrom={"sm"}
+        className="mr-4"
       >
         <IconMenu className="size-6 shrink-0" />
       </Button>

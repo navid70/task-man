@@ -7,8 +7,9 @@ import { useCardModal } from "@/hooks/use-card-modal";
 import { CardWithList } from "@/types";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
-import { Button, Skeleton } from "@mantine/core";
+import { Skeleton } from "@mantine/core";
 import { IconCopy, IconTrash } from "@tabler/icons-react";
+import { Button } from "@/components/Button";
 
 interface ActionsProps {
   data: CardWithList;

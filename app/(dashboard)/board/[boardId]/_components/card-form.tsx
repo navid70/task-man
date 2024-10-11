@@ -6,9 +6,10 @@ import { useAction } from "@/hooks/use-action";
 import { useParams } from "next/navigation";
 import { forwardRef, KeyboardEventHandler } from "react";
 import toast from "react-hot-toast";
-import { Button, Textarea } from "@mantine/core";
+import { Textarea } from "@mantine/core";
 import { IconPlus, IconX } from "@tabler/icons-react";
 import { useClickOutside, useEventListener } from "@mantine/hooks";
+import { Button } from "@/components/Button";
 
 interface CardFormProps {
   listId: string;
@@ -21,7 +22,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
   ({ listId, enableEditing, disableEditing, isEditing }, ref) => {
     const params = useParams();
 
-    const { execute, fieldErrors,isLoading } = useAction(createCard, {
+    const { execute, fieldErrors } = useAction(createCard, {
       onSuccess: (data) => {
         toast.success(`Card "${data.title}" created!`);
         formRef.current?.reset();
@@ -74,7 +75,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
           />
 
           <div className="flex justify-between items-center gap-x-1">
-            <Button size={'xs'} loading={isLoading} type={'submit'}>Add card</Button>
+            <Button size={'xs'} type={'submit'}>Add card</Button>
             <Button size={"xs"} variant={"outline"} onClick={disableEditing}>
               <IconX className="size-5" />
             </Button>

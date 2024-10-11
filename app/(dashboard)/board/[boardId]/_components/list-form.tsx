@@ -10,8 +10,9 @@ import { createList } from "@/actions/create-list";
 import { useAction } from "@/hooks/use-action";
 import toast from "react-hot-toast";
 import { useClickOutside, useEventListener } from "@mantine/hooks";
-import { Button, TextInput } from "@mantine/core";
+import { TextInput } from "@mantine/core";
 import { IconPlus, IconX } from "@tabler/icons-react";
+import { Button } from "@/components/Button";
 
 export const ListForm = () => {
   const params = useParams();

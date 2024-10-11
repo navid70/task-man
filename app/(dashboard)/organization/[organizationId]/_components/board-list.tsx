@@ -3,8 +3,8 @@ import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Skeleton, Tooltip } from "@mantine/core";
-import { IconHelpCircle, IconUser } from "@tabler/icons-react";
+import { Skeleton } from "@mantine/core";
+import { IconUser } from "@tabler/icons-react";
 import { CreateBoardPopover } from "@/app/(dashboard)/organization/[organizationId]/_components/create-board-popover";
 
 export const BoardList = async () => {
@@ -51,14 +51,6 @@ export const BoardList = async () => {
             <span className="text-xs">
                remaining
             </span>
-            <Tooltip
-              offset={40}
-              label={`
-          Free workspaces can have upto 5 Boards only. Upgrade to Pro for more Boards.
-          `}
-            >
-              <IconHelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
-            </Tooltip>
           </div>
         </CreateBoardPopover>
       </div>

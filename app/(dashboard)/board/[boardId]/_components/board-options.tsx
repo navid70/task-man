@@ -5,8 +5,9 @@ import { deleteBoard } from "@/actions/delete-board";
 import { useAction } from "@/hooks/use-action";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { Button, Popover, PopoverDropdown, PopoverTarget } from "@mantine/core";
+import { Popover, PopoverDropdown, PopoverTarget } from "@mantine/core";
 import { IconDots } from "@tabler/icons-react";
+import { Button } from "@mantine/core";
 
 interface BoardOptionsProps {
   id: string;
