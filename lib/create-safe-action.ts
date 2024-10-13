@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { auth } from "@clerk/nextjs/server";
 
 export type FieldErrors<T> = {
   [K in keyof T]?: string[];
@@ -15,6 +16,14 @@ export const createSafeAction = <TInput, TOutput>(
   handler: (validatedData: TInput) => Promise<ActionState<TInput, TOutput>>
 ) => {
   return async (data: TInput): Promise<ActionState<TInput, TOutput>> => {
+    const { userId, orgId } = auth();
+
+    if (!userId || !orgId) {
+      return {
+        error: "Unauthorized!",
+      };
+    }
+
     const validationResult = schema.safeParse(data);
 
     if (!validationResult.success) {

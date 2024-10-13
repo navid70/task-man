@@ -10,13 +10,7 @@ import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { createAuditLog } from "@/lib/create-audit-log";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId, orgId } = auth();
-
-  if (!userId || !orgId) {
-    return {
-      error: "Unauthorized!",
-    };
-  }
+  const { orgId } = auth();
 
   const { title, id, boardId } = data;
 
@@ -28,7 +22,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         id,
         boardId,
         Board: {
-          orgId,
+          orgId: orgId!,
         },
       },
       data: {
@@ -43,7 +37,6 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       action: ACTION.UPDATE,
     });
   } catch (error) {
-    console.log(error);
     return {
       error: "Failed to Update the List!",
     };

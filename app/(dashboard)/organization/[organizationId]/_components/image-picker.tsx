@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { cn } from "@/lib/utils";
 // import Image from "next/image";
-import { defaultImages } from "@/constants/images";
+import { defaultImages } from "@/constants/images-respond";
 // import Link from "next/link";
 import { Loader } from "@mantine/core";
 import { createApi } from "unsplash-js";
@@ -94,8 +94,6 @@ export const ImagePicker = ({ id, errors }: ImagePickerProps) => {
             {/*  className="object-cover rounded-md"*/}
             {/*/>*/}
             <img
-              // fill
-              // sizes="inherit"
               src={image.urls.thumb}
               alt="Unsplash Image"
               className="object-cover w-20 h-14 rounded-md"

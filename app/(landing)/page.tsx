@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link";
 import { Merriweather } from "next/font/google";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 const merriweather = Merriweather({
   subsets: ["latin"],

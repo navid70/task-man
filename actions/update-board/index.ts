@@ -10,13 +10,7 @@ import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { createAuditLog } from "@/lib/create-audit-log";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId, orgId } = auth();
-
-  if (!userId || !orgId) {
-    return {
-      error: "Unauthorized!",
-    };
-  }
+  const { orgId } = auth();
 
   const { title, id } = data;
 
@@ -26,7 +20,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     board = await db.board.update({
       where: {
         id,
-        orgId,
+        orgId: orgId!,
       },
       data: {
         title,

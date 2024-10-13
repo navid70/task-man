@@ -10,13 +10,8 @@ import { createAuditLog } from "@/lib/create-audit-log";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId, orgId } = auth();
+  const { orgId } = auth();
 
-  if (!userId || !orgId) {
-    return {
-      error: "Unauthorized!",
-    };
-  }
 
   const { id, boardId } = data;
 
@@ -28,7 +23,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         id,
         List: {
           Board: {
-            orgId,
+            orgId: orgId!,
           },
         },
       },

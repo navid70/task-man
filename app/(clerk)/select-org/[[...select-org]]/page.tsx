@@ -13,7 +13,6 @@ export default function CreateOrganizationPage() {
   useEffect(() => {
     if (user && user.id && createOrganization && router) {
       if (user.organizationMemberships.length === 0) {
-        console.log('no org');
         setIsSetting(true);
         createOrganization({ name: (user.firstName ? `${user.firstName}'s ` : "my ") + "workspace" })
           .then(res => {
@@ -21,7 +20,7 @@ export default function CreateOrganizationPage() {
               router.push(`/organization/${res.id}`);
             });
           })
-          .catch(err => console.log("errrrr" + err));
+          .catch(err => console.log(err));
       }
     }
   }, [user, createOrganization, router, setActive]);

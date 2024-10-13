@@ -10,8 +10,7 @@ import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@mantine/hooks";
 import { Popover, PopoverDropdown, PopoverTarget, TextInput } from "@mantine/core";
 import { ImagePicker } from "./image-picker";
-import { useFormStatus } from "react-dom";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 // import { useProModal } from "@/hooks/use-pro-modal";
 // import { useMediaQuery } from "usehooks-ts";
 
@@ -29,8 +28,6 @@ export const CreateBoardPopover = ({
   const closeRef = useRef<ElementRef<"button">>(null);
   const router = useRouter();
   const isMobile = useMediaQuery("(max-width:768px)");
-  const { pending } = useFormStatus();
-  console.log('out',pending);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

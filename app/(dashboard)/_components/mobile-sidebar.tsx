@@ -7,7 +7,7 @@ import { Sidebar } from "./sidebar";
 import { Drawer } from "@mantine/core";
 import { IconMenu } from "@tabler/icons-react";
 import { useShallow } from "zustand/react/shallow";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 export const MobileSidebar = () => {
   const { isOpen, onOpen, onClose } = useMobileSidebar(useShallow((state) => ({

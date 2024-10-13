@@ -8,13 +8,7 @@ import { createSafeAction } from "@/lib/create-safe-action";
 import { UpdateCardOrder } from "./schema";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId, orgId } = auth();
-
-  if (!userId || !orgId) {
-    return {
-      error: "Unauthorized!",
-    };
-  }
+  const { orgId } = auth();
 
   const { items, boardId } = data;
 
@@ -27,7 +21,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
           id: card.id,
           List: {
             Board: {
-              orgId,
+              orgId: orgId!,
             },
           },
         },

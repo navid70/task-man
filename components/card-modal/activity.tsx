@@ -11,7 +11,7 @@ interface ActivityProps {
 
 export const Activity = ({ items }: ActivityProps) => {
 
-  console.log(items);
+
   return (
     <div className="flex items-start gap-x-3 w-full">
       <IconActivity className="size-5 mt-0.5 " />

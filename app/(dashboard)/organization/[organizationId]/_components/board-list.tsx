@@ -2,21 +2,16 @@ import { db } from "@/lib/db";
 
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { Skeleton } from "@mantine/core";
 import { IconPlus, IconUser } from "@tabler/icons-react";
-import { CreateBoardPopover } from "@/app/(dashboard)/organization/[organizationId]/_components/create-board-popover";
+import { CreateBoardPopover } from "./create-board-popover";
 
 export const BoardList = async () => {
   const { orgId } = auth();
 
-  if (!orgId) {
-    return redirect("/select-org");
-  }
-
   const boards = await db.board.findMany({
     where: {
-      orgId,
+      orgId: orgId!,
     },
     orderBy: {
       createdAt: "desc",

@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { Textarea } from "@mantine/core";
 import { IconPlus, IconX } from "@tabler/icons-react";
 import { useClickOutside, useEventListener } from "@mantine/hooks";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 interface CardFormProps {
   listId: string;

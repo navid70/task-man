@@ -12,7 +12,7 @@ import { useClickOutside, useEventListener } from "@mantine/hooks";
 import toast from "react-hot-toast";
 import { IconAlignLeft } from "@tabler/icons-react";
 import { Skeleton, Textarea } from "@mantine/core";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 interface DescriptionProps {
   data: CardWithList;

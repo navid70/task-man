@@ -12,7 +12,6 @@ export function MyClerkProvider({ children }: PropsWithChildren) {
 
   return (
     <QueryClientProvider client={queryClient}>
-
       <ClerkProvider
         afterSignOutUrl="/"
         appearance={{

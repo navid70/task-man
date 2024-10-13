@@ -8,7 +8,7 @@ import { ElementRef, useRef } from "react";
 import { copyList } from "@/actions/copy-list";
 import { Divider, Popover, PopoverDropdown, PopoverTarget } from "@mantine/core";
 import { IconDots } from "@tabler/icons-react";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 interface ListOptionsProps {
   data: List;
@@ -55,9 +55,11 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
   return (
     <Popover position={"bottom-start"}>
       <PopoverTarget>
-        <Button variant={"subtle"} className="h-auto w-auto p-2">
-          <IconDots className="h-4 w-4" />
-        </Button>
+        <div>
+          <Button variant={"subtle"} className="h-auto w-auto p-2">
+            <IconDots className="h-4 w-4" />
+          </Button>
+        </div>
       </PopoverTarget>
       <PopoverDropdown className="px-0 py-3 ">
         <div className="text-sm font-medium text-center pb-4">

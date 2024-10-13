@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
 import { Skeleton } from "@mantine/core";
 import { IconCopy, IconTrash } from "@tabler/icons-react";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 interface ActionsProps {
   data: CardWithList;

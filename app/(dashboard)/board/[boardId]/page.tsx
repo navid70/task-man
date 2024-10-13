@@ -12,15 +12,11 @@ interface BoardIdPageProps {
 const BoardIdPage = async ({ params }: BoardIdPageProps) => {
   const { orgId } = auth();
 
-  if (!orgId) {
-    redirect("/select-org");
-  }
-
   const lists = await db.list.findMany({
     where: {
       boardId: params.boardId,
       Board: {
-        orgId,
+        orgId:orgId!,
       },
     },
     include: {
@@ -34,7 +30,7 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
       order: "asc",
     },
   });
-  console.log(lists);
+
   return (
     <div className="p-5 h-full space-y-2 overflow-x-auto">
       <ListContainer boardId={params.boardId} data={lists} />

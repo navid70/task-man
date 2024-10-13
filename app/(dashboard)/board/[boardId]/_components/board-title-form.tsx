@@ -6,7 +6,7 @@ import { useAction } from "@/hooks/use-action";
 import { updateBoard } from "@/actions/update-board";
 import toast from "react-hot-toast";
 import { Input } from "@mantine/core";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 interface BoardTitleFormProps {
   data: Board;

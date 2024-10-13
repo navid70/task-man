@@ -6,7 +6,7 @@ import { NavItem, Organization } from "./nav-item";
 import { IconPlus } from "@tabler/icons-react";
 import { useDisclosure, useLocalStorage } from "@mantine/hooks";
 import { Accordion, Modal, Skeleton } from "@mantine/core";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 

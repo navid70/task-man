@@ -42,7 +42,6 @@ export default function RootLayout({
     <MantineProvider theme={theme} defaultColorScheme={'dark'}>
       <ChangeTheme />
       <Notifications />
-
       <MyClerkProvider>
         {children}
       </MyClerkProvider>

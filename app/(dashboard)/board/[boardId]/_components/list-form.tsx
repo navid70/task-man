@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { useClickOutside, useEventListener } from "@mantine/hooks";
 import { TextInput } from "@mantine/core";
 import { IconPlus, IconX } from "@tabler/icons-react";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 export const ListForm = () => {
   const params = useParams();
