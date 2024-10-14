@@ -48,7 +48,7 @@ export const Description = ({ data }: DescriptionProps) => {
   useEventListener("keydown", onKeyDown);
   const formRef = useClickOutside(disableEditing);
 
-  const { execute, fieldErrors,isLoading } = useAction(updateCard, {
+  const { execute, fieldErrors, isLoading } = useAction(updateCard, {
     onSuccess: (data) => {
       queryClient.invalidateQueries({
         queryKey: ["card", data.id],

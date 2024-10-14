@@ -5,14 +5,14 @@ import { InputType, ReturnType } from "./types";
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { createSafeAction } from "@/lib/create-safe-action";
-import { UpdateCard } from "./schema";
+import { AssignCard } from "./schema";
 import { createAuditLog } from "@/lib/create-audit-log";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { orgId } = auth();
 
-  const { id, boardId, ...values } = data;
+  const { id, boardId, assignedUserId, assignedUserImage, assignedUserName } = data;
 
   let card;
 
@@ -27,7 +27,9 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         },
       },
       data: {
-        ...values,
+        assignedUserId,
+        assignedUserImage,
+        assignedUserName
       },
     });
 
@@ -35,11 +37,12 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       entityTitle: card.title,
       entityId: card.id,
       entityType: ENTITY_TYPE.CARD,
-      action: ACTION.UPDATE,
+      action: ACTION.ASSIGN,
+      userName: assignedUserName
     });
   } catch (error) {
     return {
-      error: "Failed to Update the Card!",
+      error: "Failed to Copy the Card!",
     };
   }
 
@@ -47,4 +50,4 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   return { data: card };
 };
 
-export const updateCard = createSafeAction(UpdateCard, handler);
+export const assignCard = createSafeAction(AssignCard, handler);

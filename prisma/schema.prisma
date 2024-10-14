@@ -10,17 +10,18 @@ datasource db {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model AuditLog {
-  id          String      @id @default(uuid())
-  orgId       String
-  action      ACTION
-  entityId    String
-  entityType  ENTITY_TYPE
-  entityTitle String
-  userId      String
-  userImage   String
-  userName    String
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id               String      @id @default(uuid())
+  orgId            String
+  action           ACTION
+  entityId         String
+  entityType       ENTITY_TYPE
+  entityTitle      String
+  userId           String
+  userImage        String
+  userName         String
+  assignedUserName String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
 }
 
 model Board {
@@ -37,14 +38,17 @@ model Board {
 }
 
 model Card {
-  id          String   @id @default(uuid())
-  title       String
-  order       Int
-  description String?
-  listId      String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  List        List     @relation(fields: [listId], references: [id], onDelete: Cascade)
+  id                String   @id @default(uuid())
+  title             String
+  order             Int
+  description       String?
+  assignedUserId    String?
+  assignedUserName  String?
+  assignedUserImage String?
+  listId            String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  List              List     @relation(fields: [listId], references: [id], onDelete: Cascade)
 
   @@index([listId])
 }
@@ -66,6 +70,7 @@ enum ACTION {
   CREATE
   UPDATE
   DELETE
+  ASSIGN
 }
 
 enum ENTITY_TYPE {

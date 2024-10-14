@@ -11,6 +11,8 @@ import { Activity } from "./activity";
 import axios from "axios";
 import { Modal } from "@mantine/core";
 import { useShallow } from "zustand/react/shallow";
+import { useOrganization } from "@clerk/nextjs";
+import { Assignment } from "./assignment";
 
 export const CardModal = () => {
   const { id, isOpen, onClose } = useCardModal(useShallow((state) => ({
@@ -19,6 +21,9 @@ export const CardModal = () => {
     onClose: state.onClose,
   })));
 
+  const { memberships } = useOrganization({
+    memberships: { infinite: true }
+  });
 
   const { data: cardData } = useQuery<CardWithList>({
     queryKey: ["card", id],
@@ -32,7 +37,7 @@ export const CardModal = () => {
     queryKey: ["card-logs", id],
     queryFn: async () => {
       const { data } = await axios.get(`/api/cards/${id}/logs`);
-      return data
+      return data;
     },
   });
 
@@ -47,6 +52,11 @@ export const CardModal = () => {
                 <Description data={cardData} />
               ) : (
                 <Description.Skeleton />
+              )}
+              {(cardData && memberships?.data) ? (
+                <Assignment data={cardData} members={memberships.data.map(e => e.publicUserData)} />
+              ) : (
+                <Assignment.Skeleton />
               )}
               {auditLogsData ? (
                 <Activity items={auditLogsData} />
