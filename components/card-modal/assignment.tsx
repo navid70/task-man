@@ -1,7 +1,5 @@
 "use client";
 
-import { updateCard } from "@/actions/update-card";
-
 import { useAction } from "@/hooks/use-action";
 import { CardWithList } from "@/types";
 import { useQueryClient } from "@tanstack/react-query";
@@ -9,7 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { ElementRef, useRef } from "react";
 import toast from "react-hot-toast";
-import { IconAlignLeft, IconUserPin } from "@tabler/icons-react";
+import { IconUserPin } from "@tabler/icons-react";
 import { Select, Skeleton } from "@mantine/core";
 import { assignCard } from "@/actions/assign-card";
 import { PublicUserData } from "@clerk/types";
@@ -23,8 +21,6 @@ export const Assignment = ({ data, members }: DescriptionProps) => {
   const queryClient = useQueryClient();
   const formRef = useRef<ElementRef<"form">>(null);
   const params = useParams();
-  console.log(members);
-  const textareaRef = useRef<ElementRef<"textarea">>(null);
 
 
   const { execute, isLoading } = useAction(assignCard, {
