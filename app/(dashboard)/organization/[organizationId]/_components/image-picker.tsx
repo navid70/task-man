@@ -24,8 +24,8 @@ const unsplash = createApi({
 export const ImagePicker = ({ id, errors }: ImagePickerProps) => {
   const { pending } = useFormStatus();
 
-  const [images, setImages] = useState<Array<Record<string, any>>>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [images, setImages] = useState<Array<Record<string, any>>>(defaultImages);
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedImageId, setSelectedImageId] = useState(null);
 
 
